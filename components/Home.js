@@ -1,10 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Picker, Button } from "react-native";
-
-const games = [
-  { label: "Uno!", value: "uno" },
-  { label: "Бэнг", value: "bang" }
-];
+import { games } from "../util/data.js";
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +20,7 @@ const styles = StyleSheet.create({
 });
 
 const Home = props => {
-  const [game, setGame] = React.useState(games[0].value);
+  const [game, setGame] = React.useState(games[0]);
 
   return (
     <View style={styles.container}>
@@ -35,12 +31,16 @@ const Home = props => {
         onValueChange={(itemValue, itemIndex) => setGame(itemValue)}
       >
         {games.map(game => (
-          <Picker.Item key={game.value} label={game.label} value={game.value} />
+          <Picker.Item key={game.value} label={game.label} value={game} />
         ))}
       </Picker>
       <Button
         title="Начать"
-        onPress={() => props.navigation.navigate("UnoSettings")}
+        onPress={() =>
+          props.navigation.navigate("Settings", {
+            game: game
+          })
+        }
       />
     </View>
   );

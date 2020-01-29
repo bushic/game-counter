@@ -1,12 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { Text } from "react-native";
 
 const UnoSettings = props => {
-  return (
-    <View>
-      <Text>Uno settings</Text>
-    </View>
-  );
+  return <Text>Uno settings</Text>;
 };
 
 export default UnoSettings;

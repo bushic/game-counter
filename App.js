@@ -1,8 +1,8 @@
 import React from "react";
 import Home from "./components/Home";
 import { createStackNavigator } from "react-navigation-stack";
-import UnoSettings from "./components/UnoSettings";
 import { createAppContainer } from "react-navigation";
+import Settings from "./components/Settings";
 
 const App = () => {
   return <AppContainer />;
@@ -11,7 +11,7 @@ const App = () => {
 const RootStack = createStackNavigator(
   {
     Home: Home,
-    UnoSettings: UnoSettings
+    Settings: Settings
   },
   {
     initialRouteName: "Home"
