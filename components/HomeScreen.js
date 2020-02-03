@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const Home = props => {
+const HomeScreen = props => {
   const [game, setGame] = React.useState(games[0]);
 
   return (
@@ -46,4 +46,4 @@ const Home = props => {
   );
 };
 
-export default Home;
+export default HomeScreen;

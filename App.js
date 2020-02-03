@@ -1,8 +1,9 @@
 import React from "react";
-import Home from "./components/Home";
+import HomeScreen from "./components/HomeScreen";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
-import Settings from "./components/Settings";
+import SettingsScreen from "./components/SettingsScreen";
+import AboutScreen from "./components/AboutScreen";
 
 const App = () => {
   return <AppContainer />;
@@ -10,8 +11,9 @@ const App = () => {
 
 const RootStack = createStackNavigator(
   {
-    Home: Home,
-    Settings: Settings
+    Home: HomeScreen,
+    Settings: SettingsScreen,
+    About: AboutScreen
   },
   {
     initialRouteName: "Home"
