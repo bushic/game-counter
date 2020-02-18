@@ -1,21 +1,27 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Fab from "./Fab";
+import Player from "./Player";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    padding: 24
   },
   fabContainer: {
     position: "absolute",
-    bottom: 10,
-    right: 5,
+    bottom: 20,
+    right: 15,
     flexDirection: "column",
     justifyContent: "space-between"
   },
-  fabIcon: {
-    width: 20,
-    height: 20
+  playerContainer: {
+    flexDirection: "column",
+    justifyContent: "space-between"
+  },
+  caption: {
+    fontSize: 24,
+    marginBottom: 24
   }
 });
 
@@ -27,18 +33,32 @@ class SettingsScreen extends React.Component {
   };
 
   state = {
-    players: []
+    players: [
+      {
+        id: 1,
+        name: "Дима"
+      },
+      {
+        id: 2,
+        name: "Лера"
+      }
+    ]
   };
 
   handleAddPlayer = event => {};
   handlePlay = event => {};
 
   render() {
-    const game = this.props.navigation.getParam("game");
+    const { players } = this.state;
 
     return (
       <View style={styles.container}>
-        <Text>Игроки</Text>
+        <Text style={styles.caption}>Игроки</Text>
+        <View style={styles.playerContainer}>
+          {players.map(player => (
+            <Player key={player.id} name={player.name} />
+          ))}
+        </View>
         <View style={styles.fabContainer}>
           <Fab
             onPress={this.handleAddPlayer}
